@@ -4,6 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>图录 · 尘画</title>
+<meta name="description" content="按主题浏览尘画的历史摄影与绘画故事。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.chenhua.net/atlas/">
+<link rel="alternate" hreflang="zh-CN" href="https://www.chenhua.net/atlas/">
+<link rel="alternate" hreflang="en" href="https://www.chenhua.net/atlas/?lang=en">
+<meta property="og:type" content="website">
+<meta property="og:title" content="图录 · 尘画">
+<meta property="og:description" content="按主题浏览尘画的历史摄影与绘画故事。">
+<meta property="og:url" content="https://www.chenhua.net/atlas/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
 <link rel="icon" type="image/svg+xml" href="../assets/leaf/favicon.svg">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
 <style>
@@ -90,7 +101,7 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 .stage{min-width:0}
 .stage-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:1px solid var(--ink);padding-bottom:0;margin-bottom:18px;flex-wrap:wrap}
 .viewtabs{display:flex;align-items:stretch;gap:0}
-.viewtab{position:relative;border:0;border-bottom:4px solid transparent;background:transparent;padding:10px 16px 10px 0;margin-right:22px;text-align:left}
+.viewtab{position:relative;border:0;border-bottom:4px solid transparent;background:transparent;padding:10px 16px 10px 0;margin-right:22px;text-align:left;text-decoration:none}
 .viewtab-top{display:flex;align-items:center;gap:6px}
 .view-mark{width:19px;height:19px;object-fit:contain;opacity:.9}
 .viewtab b{font-family:var(--serif);font-size:18px;font-weight:700;display:block;line-height:1.2}
@@ -296,14 +307,14 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 <div class="wrap">
 <header class="masthead">
   <div class="masthead-in">
-    <a class="brand" href="../index.html" aria-label="返回尘画主站">
+    <a class="brand" href="../" aria-label="返回尘画主站">
       <img class="brand-mark" src="../assets/leaf/think.svg" width="30" height="30" alt="" aria-hidden="true" decoding="async"><span class="wm"><span class="wm-lite">出</span><span class="wm-strong">尘</span><span class="wm-lite">入</span><span class="wm-strong">画</span></span><span class="sub"><span data-l="zh">尘归尘，画归画</span><span data-l="en">Image as history</span></span>
     </a>
     <nav class="masthead-nav" aria-label="全站导航">
-      <a href="../index.html"><span data-l="zh">尘画</span><span data-l="en">Chenhua</span></a>
-      <a href="../atlas/index.html"><span data-l="zh">图录</span><span data-l="en">Atlas</span></a>
-      <a href="../atlas/?view=timeline"><span data-l="zh">时间线</span><span data-l="en">Timeline</span></a>
-      <a href="../today/index.html"><span data-l="zh">历史上的今天</span><span data-l="en">On This Day</span></a>
+      <a href="../"><span data-l="zh">尘画</span><span data-l="en">Chenhua</span></a>
+      <a href="../atlas/"><span data-l="zh">图录</span><span data-l="en">Atlas</span></a>
+      <a href="../atlas/timeline/"><span data-l="zh">时间线</span><span data-l="en">Timeline</span></a>
+      <a href="../today/"><span data-l="zh">历史上的今天</span><span data-l="en">On This Day</span></a>
       <a href="https://photo.chenhua.net/"><span data-l="zh">摄影</span><span data-l="en">Photography</span></a>
       <a href="https://paint.chenhua.net/"><span data-l="zh">绘画</span><span data-l="en">Painting</span></a>
       <a href="../search/"><span data-l="zh">搜索</span><span data-l="en">Search</span></a>
@@ -321,7 +332,7 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 
 <section class="lede">
   <h1>图录</h1>
-  <p>按主题、时间线或日历浏览。</p>
+  <p>按主题、时间线或日期浏览。</p>
 </section>
 
 <main class="shell">
@@ -334,9 +345,9 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   <section class="stage" aria-label="图录视图">
     <div class="stage-top">
       <div class="viewtabs" role="tablist" aria-label="视图切换">
-        <button class="viewtab" role="tab" data-view="theme" aria-selected="true"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/think.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>主题</b></span><span class="c" id="themeCount"></span></button>
-        <button class="viewtab" role="tab" data-view="timeline" aria-selected="false"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/curious.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>时间线</b></span><span class="c" id="decadeCount"></span></button>
-        <button class="viewtab" role="tab" data-view="calendar" aria-selected="false"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/calm.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>日历</b></span><span class="c" id="dateCount"></span></button>
+        <a class="viewtab" role="tab" data-view="theme" aria-selected="true" href="../atlas/"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/think.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>主题</b></span><span class="c" id="themeCount"></span></a>
+        <a class="viewtab" role="tab" data-view="timeline" aria-selected="false" href="../atlas/timeline/"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/curious.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>时间线</b></span><span class="c" id="decadeCount"></span></a>
+        <a class="viewtab" role="tab" data-view="calendar" aria-selected="false" href="../today/"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/calm.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>日历</b></span><span class="c">366</span></a>
       </div>
       <div class="filterline" id="filterline"></div>
     </div>
@@ -353,12 +364,12 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 </section>
 
 <footer class="site-foot">
-  <a class="sf-brand" href="../index.html"><span data-l="zh">出尘入画</span><span data-l="en">Chenhua</span></a>
+  <a class="sf-brand" href="../"><span data-l="zh">出尘入画</span><span data-l="en">Chenhua</span></a>
   <nav class="sf-nav">
-    <a href="../index.html"><span data-l="zh">尘画</span><span data-l="en">Chenhua</span></a>
-    <a href="../atlas/index.html"><span data-l="zh">图录</span><span data-l="en">Atlas</span></a>
-    <a href="../atlas/?view=timeline"><span data-l="zh">时间线</span><span data-l="en">Timeline</span></a>
-    <a href="../today/index.html"><span data-l="zh">历史上的今天</span><span data-l="en">On This Day</span></a>
+    <a href="../"><span data-l="zh">尘画</span><span data-l="en">Chenhua</span></a>
+    <a href="../atlas/"><span data-l="zh">图录</span><span data-l="en">Atlas</span></a>
+    <a href="../atlas/timeline/"><span data-l="zh">时间线</span><span data-l="en">Timeline</span></a>
+    <a href="../today/"><span data-l="zh">历史上的今天</span><span data-l="en">On This Day</span></a>
     <a href="https://photo.chenhua.net/"><span data-l="zh">摄影</span><span data-l="en">Photography</span></a>
     <a href="https://paint.chenhua.net/"><span data-l="zh">绘画</span><span data-l="en">Painting</span></a>
     <a href="../search/"><span data-l="zh">搜索</span><span data-l="en">Search</span></a>
@@ -439,7 +450,6 @@ function renderTabs(){
   $$(".viewtab").forEach(b=>b.setAttribute("aria-selected", b.dataset.view===state.view ? "true":"false"));
   $("#themeCount").textContent = THEMES.length;
   $("#decadeCount").textContent = DECADES.length;
-  $("#dateCount").textContent = ATLAS_DATA.date_count;
 }
 function renderFilterline(){
   const chips=[];
@@ -583,8 +593,6 @@ function renderAll(){
   renderTabs(); renderFilterline(); renderRail(); renderMatrix();
   if(state.view==="theme") renderTheme();
   if(state.view==="timeline") renderTimeline();
-  if(state.view==="calendar") renderCalendar();
-  $$(".viewtab").forEach(b=>b.onclick=()=>{state.view=b.dataset.view; renderAll();});
   $$("[data-story]").forEach(b=>b.onclick=()=>{state.focus=b.dataset.story; openDetail(b.dataset.story);});
   $$("[data-clear]").forEach(b=>b.onclick=()=>{state[b.dataset.clear]=null; renderAll();});
   $("#clearAll") && ($("#clearAll").onclick=()=>{state.theme=null;state.decade=null;state.date=null;renderAll();});
@@ -593,7 +601,7 @@ function renderAll(){
 function goAxis(kind, s){
   if(kind==="theme"){state.theme=s.theme; state.decade=null; state.date=null; state.view="theme";}
   if(kind==="decade"){state.theme=null; state.decade=s.decade; state.date=null; state.view="timeline";}
-  if(kind==="date"){state.theme=null; state.decade=null; state.date=s.date; state.view="calendar";}
+  if(kind==="date"){ if(s.date){const p=location.pathname.includes("/atlas/timeline/")?"../../today/":"../today/"; location.href=p+s.date+".html"; return;} }
   renderAll();
   document.querySelector(".stage").scrollIntoView({behavior:"smooth",block:"start"});
 }
@@ -618,20 +626,6 @@ $("#detailClose").onclick=closeDetail;
 $("#detail").addEventListener("click",e=>{if(e.target.id==="detail") closeDetail();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#detail").hidden) closeDetail();});
 $("#reset").onclick=()=>{state.theme=null;state.decade=null;state.date=null;renderAll();};
-function readParams(){
-  const q = new URLSearchParams(location.search);
-  const v = q.get("view");
-  if(v==="theme"||v==="timeline"||v==="calendar") state.view=v;
-  const th = q.get("theme");
-  if(th && THEMES.some(t=>t.name===th)) state.theme=th;
-  const dc = q.get("decade");
-  if(dc && DECADES.includes(dc)) state.decade=dc;
-  const dt = q.get("date");
-  if(dt && /^\d{2}-\d{2}$/.test(dt)) state.date=dt;
-  const sid = q.get("story");
-  if(sid && STORIES.some(s=>s.id===sid)) state.focus=sid;
-}
-readParams();
 renderAll();
 </script>
 <script src="../assets/site.js"></script>

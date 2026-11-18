@@ -38,7 +38,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{width:min(1480px, var(--stage));margin:0 auto;position:relative;z-index:1}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 .masthead{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
 .masthead-in{display:flex;align-items:center;gap:24px;padding:12px 0;min-height:60px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
@@ -214,7 +214,7 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 .legend i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:block}
 
 /* matrix */
-.matrix-section{margin:28px 0 50px;border-top:1px solid var(--ink);padding-top:18px}
+.matrix-section{max-width:1240px;margin:28px auto 50px;border-top:1px solid var(--ink);padding:18px 28px 0}
 .matrix-wrap{overflow-x:auto}
 .matrix{display:grid;grid-template-columns:126px repeat(21,minmax(56px,1fr));min-width:1300px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
 .mcell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:7px 6px;min-height:38px;font-size:10px;background:transparent;text-align:center;position:relative;color:var(--muted)}
@@ -261,7 +261,7 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 .foot-utility{display:flex;justify-content:center;flex-wrap:wrap;gap:11px;font-size:9px;margin-bottom:8px}
 .foot-note{margin:0;line-height:1.8}
 .site-foot{display:flex;align-items:center;justify-content:center;gap:7px 13px;flex-wrap:wrap;
-  margin-top:24px;padding:11px 0;border-top:1px solid var(--rule);font-size:10.5px;color:var(--muted)}
+  max-width:1240px;margin:24px auto 0;padding:11px 28px;border-top:1px solid var(--rule);font-size:10.5px;color:var(--muted)}
 .site-foot a{color:var(--muted);text-decoration:none}
 .site-foot a:hover{color:var(--accent)}
 .site-foot .sf-brand{font-family:var(--serif);font-size:12px;letter-spacing:.14em;color:var(--ink);white-space:nowrap}
@@ -281,6 +281,9 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   .day-detail{position:relative}
 }
 @media (max-width:760px){
+  .wrap{padding:0 18px}
+  .site-foot{padding-left:18px;padding-right:18px}
+  .matrix-section{padding-left:18px;padding-right:18px}
   .masthead-in{gap:10px}
   .brand .sub{display:none}
   .tag{display:none}
@@ -331,27 +334,13 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   </div>
 </header>
 
-<section class="lede">
-  <h1>时间线</h1>
-  <p>按主题、时间线或日期浏览。</p>
-</section>
-
-<main class="shell">
-  <aside class="rail" aria-label="当前筛选">
+<main class="shell">  <aside class="rail" aria-label="当前筛选">
     <div class="rail-head"><b>当前筛选</b></div>
     <div id="focus"></div>
     <button class="reset" id="reset" type="button">清除筛选</button>
   </aside>
 
   <section class="stage" aria-label="时间线视图">
-    <div class="stage-top">
-      <div class="viewtabs" role="tablist" aria-label="视图切换">
-        <a class="viewtab" role="tab" data-view="theme" aria-selected="false" href="../themes/"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/think.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>主题</b></span><span class="c" id="themeCount"></span></a>
-        <a class="viewtab" role="tab" data-view="timeline" aria-selected="true" href="../timeline/"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/curious.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>时间线</b></span><span class="c" id="decadeCount"></span></a>
-        <a class="viewtab" role="tab" data-view="calendar" aria-selected="false" href="../today/"><span class="viewtab-top"><img class="view-mark" src="../assets/leaf/calm.svg" width="19" height="19" alt="" aria-hidden="true" decoding="async"><b>日历</b></span><span class="c">366</span></a>
-      </div>
-      <div class="filterline" id="filterline"></div>
-    </div>
     <div id="stageView"></div>
   </section>
 </main>
@@ -449,10 +438,11 @@ function renderRail(){
 }
 function renderTabs(){
   $$(".viewtab").forEach(b=>b.setAttribute("aria-selected", b.dataset.view===state.view ? "true":"false"));
-  $("#themeCount").textContent = THEMES.length;
-  $("#decadeCount").textContent = DECADES.length;
+  const tc=$("#themeCount"); if(tc) tc.textContent = THEMES.length;
+  const dc=$("#decadeCount"); if(dc) dc.textContent = DECADES.length;
 }
 function renderFilterline(){
+  const fl=$("#filterline"); if(!fl) return;
   const chips=[];
   if(state.theme) chips.push(`<button class="chip" data-clear="theme" type="button">主题 · ${state.theme}<span class="close">×</span></button>`);
   if(state.decade) chips.push(`<button class="chip" data-clear="decade" type="button">时间线 · ${state.decade}<span class="close">×</span></button>`);
@@ -488,7 +478,6 @@ function renderTheme(){
     <p class="rail-note">显示前 6 篇。</p>
   `;
   $("#stageView").innerHTML = `
-    <div class="section-head"><h2>主题</h2><p>按题材浏览。</p></div>
     <div class="theme-grid">
       <div class="theme-list">${themeRows}</div>
       <aside class="theme-panel">${panel}</aside>
@@ -515,7 +504,6 @@ function renderTimeline(){
   }).join("");
   const ruler = DECADES.map(d=>`<button data-decade="${d}" aria-current="${state.decade===d}">${d.replace("s","")}</button>`).join("");
   $("#stageView").innerHTML = `
-    <div class="section-head"><h2>时间线</h2><p>按年代浏览。</p></div>
     <div class="ruler"><div class="ruler-line"></div><div class="ruler-grid">${ruler}</div></div>
     <div class="timeline-scroll"><div class="decade-track">${decadeCols}</div></div>
     <div class="axis-caption"><span>← 1820</span><span>2020 →</span></div>
@@ -629,6 +617,6 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#detail").hidde
 $("#reset").onclick=()=>{state.theme=null;state.decade=null;state.date=null;renderAll();};
 renderAll();
 </script>
-<script src="../assets/site.js?v=1794961709"></script>
+<script src="../assets/site.js?v=1794964897"></script>
 </body>
 </html>

@@ -4,30 +4,19 @@
 <script>(function(){try{function ck(n){var m=document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)"));return m?decodeURIComponent(m[1]):""}var q=new URLSearchParams(location.search).get("lang");var l=q||ck("chenhua-lang")||localStorage.getItem("chenhua-lang")||"zh";if(l==="en"){document.documentElement.setAttribute("data-lang","en");document.documentElement.lang="en"}else{document.documentElement.setAttribute("data-lang","zh");document.documentElement.lang="zh-CN"}var t=ck("chenhua-theme")||localStorage.getItem("chenhua-theme");if(t!=="light"&&t!=="dark")t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>时间线 · 尘画</title>
-<meta name="description" content="按年代浏览尘画的历史摄影与绘画故事。">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://www.chenhua.net/timeline/">
-<link rel="alternate" hreflang="zh-CN" href="https://www.chenhua.net/timeline/">
-<link rel="alternate" hreflang="en" href="https://www.chenhua.net/timeline/?lang=en">
-<meta property="og:type" content="website">
-<meta property="og:title" content="时间线 · 尘画">
-<meta property="og:description" content="按年代浏览尘画的历史摄影与绘画故事。">
-<meta property="og:url" content="https://www.chenhua.net/timeline/">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:locale:alternate" content="en_US">
-<link rel="icon" type="image/svg+xml" href="../assets/leaf/favicon.svg">
-<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<title>主题 · 尘画</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/leaf/favicon.svg">
 <style>
 :root{
   --paper:#f6f2ea; --paper-2:#f1ebdf; --panel:#fffdf8; --ink:#231f19; --muted:#6b6252;
   --rule:#ded5c5; --rule-strong:#b8ab95; --accent:#8b6520; --accent-ink:#6d4f18;
+  --surface2:#efe9dd;
   --blue:#234c5d; --blue-soft:#d8e1e1; --ok:#395d4e; --shadow:none;
-  --serif:"Noto Serif SC","Songti SC",serif; --sans:"Noto Sans SC","PingFang SC",sans-serif;
+  --serif:"Noto Serif CJK SC","Songti SC","STSong","SimSun",Georgia,serif; --sans:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
   --stage:calc(100vw - clamp(32px,8vw,108px));
 }
 html[data-theme="dark"]{
-  --paper:#0d0c0b; --paper-2:#151311; --panel:#1c1916; --ink:#ebe5da; --muted:#9b9184;
+  --paper:#0d0c0b; --paper-2:#151311; --panel:#1c1916; --surface2:#1c1916; --ink:#ebe5da; --muted:#9b9184;
   --rule:#302b25; --rule-strong:#4a4238; --accent:#c8a24a; --accent-ink:#d8b25e;
   --blue:#82a8b2; --blue-soft:#26393d; --ok:#93b7a4;
 }
@@ -39,27 +28,29 @@ a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
-.masthead{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
-.masthead-in{display:flex;align-items:center;gap:24px;padding:12px 0;min-height:60px}
+.masthead{position:sticky;top:0;z-index:20;height:60px;box-sizing:border-box;margin:0 -28px;padding:0 28px;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.masthead-in{display:flex;align-items:center;gap:24px;height:59px;min-height:59px;padding:0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
 .brand .brand-mark{width:30px;height:30px;flex:none;object-fit:contain;margin-right:-2px}
-.brand .wm{display:inline-flex;align-items:baseline;gap:1px;white-space:nowrap;flex:none;font-weight:900;font-size:24px;letter-spacing:.12em}
+.brand .wm{display:inline-flex;align-items:baseline;gap:1px;white-space:nowrap;flex:none;font-weight:400;font-size:24px;letter-spacing:.12em}
 .brand .wm-lite{font-family:var(--serif);font-size:17px;color:var(--muted);letter-spacing:.03em}
 .brand .wm-strong{font-family:var(--serif);font-size:24px;color:var(--accent);letter-spacing:.03em}
 .brand .sub{font-size:9px;letter-spacing:.12em;color:var(--muted);text-transform:none}
-.topmeta{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
-.masthead-nav{display:flex;align-items:center;gap:0;flex-wrap:wrap}
-.masthead-nav a{font-size:12px;letter-spacing:.02em;color:var(--muted);padding:7px 9px;text-decoration:none;white-space:nowrap}
+.topmeta{display:flex;align-items:center;gap:7px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+.masthead-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.masthead-nav a{font-size:12px;letter-spacing:normal;color:var(--muted);padding:7px 10px;border-radius:999px;text-decoration:none;white-space:nowrap}
 .masthead-nav a:hover{color:var(--ink)}
+.masthead-nav a[aria-current="page"]{background:var(--surface2);color:var(--ink)}
 @media (max-width:1100px){.topmeta .tag,.topmeta .ghost{display:none}}
-.langbtn{min-width:34px;height:28px;padding:0 9px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);font-size:10px;letter-spacing:.05em;color:var(--muted)}
+.langbtn{min-width:34px;height:28px;padding:0 9px;border:1px solid var(--rule);border-radius:999px;background:var(--panel);font-size:10px;letter-spacing:.05em;color:var(--muted);display:grid;place-items:center}
 .langbtn:hover{border-color:var(--ink);color:var(--ink)}
 html[data-lang="en"] [data-l="zh"]{display:none}
 html[data-lang="zh"] [data-l="en"]{display:none}
 .tag,.ghost{font-size:11px;letter-spacing:.08em;border:1px solid var(--rule);background:transparent;padding:6px 9px;text-decoration:none;line-height:1.2;white-space:nowrap}
 .tag{border-color:var(--accent);color:var(--accent-ink)}
 .ghost:hover,.tag:hover{border-color:var(--ink)}
-.iconbtn{width:34px;height:34px;border:1px solid var(--rule);border-radius:50%;background:var(--surface);display:grid;place-items:center;padding:0}
+.iconbtn{width:34px;height:34px;border:1px solid var(--rule);border-radius:50%;background:var(--panel);color:var(--muted);display:grid;place-items:center;padding:0}
+.iconbtn:hover{border-color:var(--ink);color:var(--ink)}
 .iconbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6}
 html[data-theme="light"] .moon{display:none}
 html[data-theme="dark"] .sun{display:none}
@@ -77,7 +68,7 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 .axis-key p{grid-column:2;font-size:12px;line-height:1.55;color:var(--muted);margin:4px 0 0}
 .axis-key .n{grid-row:1/3;font-family:var(--serif);font-size:28px;font-weight:600;color:var(--accent);line-height:1;align-self:center}
 
-.shell{display:grid;grid-template-columns:272px minmax(0,1fr);gap:clamp(22px,3vw,46px);padding:clamp(22px,3vw,38px) 0 18px;align-items:start}
+.shell{display:block;padding:clamp(20px,2.5vw,32px) 0 28px}
 .rail{position:sticky;top:82px}
 .rail-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding-bottom:7px;margin-bottom:14px}
 .rail-head span{font-size:10px;letter-spacing:.16em;color:var(--muted)}
@@ -100,6 +91,45 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 .reset:hover{border-color:var(--ink);color:var(--ink)}
 
 .stage{min-width:0}
+
+/* directory cards: themes and eras */
+.directory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.theme-card{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:196px;border:0;background:var(--paper);padding:18px;text-align:left}
+.theme-card:hover{background:var(--panel)}
+.theme-card .card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-bottom:15px}
+.theme-card .card-id{display:inline-flex;align-items:center;gap:7px;min-width:0}
+.theme-card .card-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none;background:var(--dot,var(--accent))}
+.theme-card .card-count{font-size:10px;color:var(--muted);white-space:nowrap}
+.theme-card .name{font-family:var(--serif);font-size:clamp(19px,1.7vw,24px);font-weight:700;line-height:1.22;letter-spacing:-.02em;display:block}
+.theme-card .en{display:block;font-size:9px;letter-spacing:.11em;color:var(--muted);margin-top:4px}
+.theme-card .desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:11px;line-height:1.65;color:var(--muted);margin:12px 0 15px}
+.theme-card .spark{display:grid;gap:2px;align-items:end;width:100%;height:24px;margin-top:auto}
+.theme-card .spark i{display:block;background:var(--rule-strong);height:2px}
+.theme-card .spark i.on{background:var(--accent);height:var(--h)}
+.era-card{display:flex;flex-direction:column;min-width:0;min-height:196px;background:var(--paper);padding:18px}
+.era-card:hover{background:var(--panel)}
+.era-card .era-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;width:100%;border:0;background:transparent;padding:0;text-align:left}
+.era-card .era-name{font-family:var(--serif);font-size:clamp(20px,1.8vw,26px);font-weight:700;line-height:1.2}
+.era-card .era-count{font-size:10px;color:var(--muted);white-space:nowrap}
+.era-samples{display:grid;gap:0;margin-top:12px}
+.era-sample{display:grid;gap:2px;width:100%;border:0;border-top:1px solid var(--rule);background:transparent;padding:8px 0 7px;text-align:left}
+.era-sample:hover .era-sample-title{color:var(--accent-ink)}
+.era-sample .era-sample-title{font-family:var(--serif);font-size:13px;font-weight:600;line-height:1.4;color:var(--ink)}
+.era-sample .era-sample-meta{font-size:9.5px;color:var(--muted);line-height:1.45}
+.era-open{align-self:flex-start;margin-top:auto;border:0;background:transparent;color:var(--accent-ink);font-size:10px;letter-spacing:.06em;padding:9px 0 0}
+.era-open:hover{color:var(--ink)}
+.drill-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:start;border-bottom:1px solid var(--ink);padding:2px 0 22px;margin-bottom:22px}
+.drill-back{border:1px solid var(--rule);border-radius:999px;background:var(--panel);padding:6px 10px;font-size:10px;letter-spacing:.04em;color:var(--muted);white-space:nowrap;margin-top:22px}
+.drill-back:hover{border-color:var(--ink);color:var(--ink)}
+.drill-kicker{display:block;font-size:9px;letter-spacing:.14em;color:var(--accent);margin-bottom:6px;text-transform:uppercase}
+.drill-head h2{font-family:var(--serif);font-size:clamp(28px,3.2vw,42px);font-weight:700;line-height:1.14;letter-spacing:-.02em;margin:0 0 7px}
+.drill-desc{font-size:11px;line-height:1.65;color:var(--muted);margin:0;max-width:58em}
+.drill-count{font-size:10px;color:var(--muted);white-space:nowrap;padding-top:28px}
+.story-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.story-grid .story-card{background:var(--paper);padding:12px;grid-template-columns:96px minmax(0,1fr);gap:14px}
+.story-grid .story-card img{width:96px;height:72px}
+.story-grid .story-card:hover{background:var(--panel)}
+
 .stage-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:1px solid var(--ink);padding-bottom:0;margin-bottom:18px;flex-wrap:wrap}
 .viewtabs{display:flex;align-items:stretch;gap:0}
 .viewtab{position:relative;border:0;border-bottom:4px solid transparent;background:transparent;padding:10px 16px 10px 0;margin-right:22px;text-align:left;text-decoration:none}
@@ -268,10 +298,11 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 .site-foot .sf-nav,.site-foot .sf-utility{display:flex;gap:11px;flex-wrap:wrap;justify-content:center}
 .site-foot .sf-utility{font-size:9px;color:var(--muted)}
 @media (max-width:899px){.masthead-nav{display:none}}
-@media (min-width:900px) and (max-width:1099px){.masthead-nav a{font-size:11.5px;padding:7px 7px}.masthead-in{gap:14px}}
+@media (min-width:900px) and (max-width:1099px){.masthead-nav a{font-size:12px;padding:7px 10px}.masthead-in{gap:14px}}
 
 @media (max-width:1100px){
   .shell{grid-template-columns:1fr}
+  .directory-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .rail{position:relative;top:0;order:2;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
   .rail-head,.axis-svg,.reset,.rail-note{grid-column:1/-1}
   .focus-card{margin-bottom:0}
@@ -280,11 +311,22 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   .calendar-wrap{grid-template-columns:1fr}
   .day-detail{position:relative}
 }
+@media (max-width:899px){
+  .masthead-nav{display:none}
+}
 @media (max-width:760px){
   .wrap{padding:0 18px}
-  .site-foot{padding-left:18px;padding-right:18px}
+  .masthead{margin:0 -18px;padding:0 18px}
+  .masthead-in{gap:10px;height:59px;min-height:59px;padding:0}
+  .directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .theme-card,.era-card{min-height:180px;padding:16px}
+  .story-grid{grid-template-columns:1fr}
+  .drill-head{grid-template-columns:1fr;gap:10px;padding-bottom:18px}
+  .drill-back{margin-top:0;justify-self:start}
+  .drill-count{padding-top:0}
+  .site-foot{padding-left:18px;padding-right:18px;margin-top:18px;gap:6px 10px}
+  .site-foot .sf-nav{display:none}
   .matrix-section{padding-left:18px;padding-right:18px}
-  .masthead-in{gap:10px}
   .brand .sub{display:none}
   .tag{display:none}
   .lede{padding-top:28px}
@@ -304,20 +346,34 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   .spark{height:18px}
   .matrix{grid-template-columns:104px repeat(21,minmax(52px,1fr))}
 }
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media (max-width:480px){
+  .directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
+<title>时间线 · 尘画</title>
+<meta name="description" content="按年代浏览尘画的历史摄影与绘画故事。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.chenhua.net/timeline/">
+<link rel="alternate" hreflang="zh-CN" href="https://www.chenhua.net/timeline/">
+<link rel="alternate" hreflang="en" href="https://www.chenhua.net/timeline/?lang=en">
+<meta property="og:type" content="website">
+<meta property="og:title" content="时间线 · 尘画">
+<meta property="og:description" content="按年代浏览尘画的历史摄影与绘画故事。">
+<meta property="og:url" content="https://www.chenhua.net/timeline/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
 </head>
 <body>
 <div class="wrap">
 <header class="masthead">
   <div class="masthead-in">
     <a class="brand" href="../" aria-label="返回尘画主站">
-      <img class="brand-mark" src="../assets/leaf/think.svg" width="30" height="30" alt="" aria-hidden="true" decoding="async"><span class="wm"><span class="wm-lite">出</span><span class="wm-strong">尘</span><span class="wm-lite">入</span><span class="wm-strong">画</span></span><span class="sub"><span data-l="zh">尘归尘，画归画</span><span data-l="en">Image as history</span></span>
+      <img class="brand-mark" src="../../assets/leaf/think.svg" width="30" height="30" alt="" aria-hidden="true" decoding="async"><span class="wm"><span class="wm-lite">出</span><span class="wm-strong">尘</span><span class="wm-lite">入</span><span class="wm-strong">画</span></span><span class="sub"><span data-l="zh">尘归尘，画归画</span><span data-l="en">Image as history</span></span>
     </a>
     <nav class="masthead-nav" aria-label="全站导航">
       <a href="../"><span data-l="zh">尘画</span><span data-l="en">Chenhua</span></a>
       <a href="../themes/"><span data-l="zh">主题</span><span data-l="en">Themes</span></a>
-      <a href="../timeline/"><span data-l="zh">时间线</span><span data-l="en">Timeline</span></a>
+      <a href="../timeline/" aria-current="page"><span data-l="zh">时间线</span><span data-l="en">Timeline</span></a>
       <a href="../today/"><span data-l="zh">历史上的今天</span><span data-l="en">On This Day</span></a>
       <a href="https://photo.chenhua.net/"><span data-l="zh">摄影</span><span data-l="en">Photography</span></a>
       <a href="https://paint.chenhua.net/"><span data-l="zh">绘画</span><span data-l="en">Painting</span></a>
@@ -325,8 +381,8 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
       <a href="https://netcn.org/"><span data-l="zh">导航</span><span data-l="en">Directory</span></a>
     </nav>
     <div class="topmeta">
-      <button class="iconbtn langbtn" type="button" data-lang-toggle aria-label="切换到英文"><span data-l="zh">EN</span><span data-l="en">中文</span></button>
-      <button class="iconbtn" id="themeBtn" data-themebtn type="button" aria-label="切换明暗">
+      <button class="langbtn" type="button" data-lang-toggle aria-label="切换到英文"><span data-l="zh">EN</span><span data-l="en">中文</span></button>
+      <button class="iconbtn themebtn" id="themeBtn" data-themebtn type="button" aria-label="切换明暗">
         <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
       </button>
@@ -334,24 +390,11 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   </div>
 </header>
 
-<main class="shell">  <aside class="rail" aria-label="当前筛选">
-    <div class="rail-head"><b>当前筛选</b></div>
-    <div id="focus"></div>
-    <button class="reset" id="reset" type="button">清除筛选</button>
-  </aside>
-
-  <section class="stage" aria-label="时间线视图">
+<main class="shell">
+  <section class="stage" aria-label="主题与时间线视图">
     <div id="stageView"></div>
   </section>
 </main>
-
-<section class="matrix-section" aria-label="主题与年代">
-  <div class="section-head">
-    <h2>主题与年代</h2>
-  </div>
-  <div class="matrix-wrap"><div class="matrix" id="matrix"></div></div>
-  <div class="mnote" id="matrixNote"></div>
-</section>
 
 <footer class="site-foot">
   <a class="sf-brand" href="../"><span data-l="zh">出尘入画</span><span data-l="en">Chenhua</span></a>
@@ -424,18 +467,6 @@ function storyCard(s, detail=false){
 }
 function empty(msg="当前筛选下没有故事。"){return `<div class="empty">${msg}</div>`}
 
-function renderRail(){
-  const s = storyOf(state.focus), t=themeOf(s.theme);
-  $("#focus").innerHTML = `<div class="focus-card">
-    <img src="${s.img}" alt="${s.title}">
-    <p class="focus-kicker">年代 · ${s.decade}</p>
-    <h3 class="focus-title">${s.title}</h3>
-    <p class="focus-meta">${s.place} · ${s.year}</p>
-    <button class="coord" data-axis="theme" type="button"><span class="coord-k">主题</span><span class="coord-v">${s.theme}</span><span class="coord-a">↗</span></button>
-    <button class="coord" data-axis="decade" type="button"><span class="coord-k">时间线</span><span class="coord-v">${s.decade}</span><span class="coord-a">↗</span></button>
-    ${s.date?`<button class="coord" data-axis="date" type="button"><span class="coord-k">日历</span><span class="coord-v">${s.date}</span><span class="coord-a">↗</span></button>`:`<button class="coord is-disabled" type="button" disabled><span class="coord-k">日历</span><span class="coord-v">无日期</span></button>`}
-  </div>`;
-}
 function renderTabs(){
   $$(".viewtab").forEach(b=>b.setAttribute("aria-selected", b.dataset.view===state.view ? "true":"false"));
   const tc=$("#themeCount"); if(tc) tc.textContent = THEMES.length;
@@ -453,133 +484,65 @@ function renderFilterline(){
 
 function renderTheme(){
   const active = state.theme;
-  const themeRows = THEMES.map((t,i)=>{
-    const count = countTheme(t.name);
+  if(active){
+    const t = themeOf(active);
+    const list = STORIES.filter(s=>s.theme===active).sort((a,b)=>(b.year||0)-(a.year||0));
+    $("#stageView").innerHTML = `
+      <div class="drill-head">
+        <button class="drill-back" data-back="theme" type="button"><span data-l="zh">← 全部主题</span><span data-l="en">← All themes</span></button>
+        <div><span class="drill-kicker">${t.en}</span><h2>${t.name}</h2><p class="drill-desc">${t.desc}</p></div>
+        <span class="drill-count">${list.length} <span data-l="zh">篇</span><span data-l="en">stories</span></span>
+      </div>
+      <div class="story-grid">${list.map(s=>storyCard(s)).join("") || empty("这个主题还没有故事。")}</div>`;
+    $("[data-back=theme]").onclick=()=>{state.theme=null;renderAll();};
+    return;
+  }
+  const cards = THEMES.map(t=>{
+    const count = STORIES.filter(s=>s.theme===t.name).length;
     const bars = DECADES.map(d=>{
-      const n = STORIES.filter(s=>s.theme===t.name && s.decade===d && (!state.date||s.date===state.date)).length;
-      return `<i class="${n?"on":""}" style="--h:${n?6+n*6:2}px" title="${d} · ${n} 篇"></i>`;
+      const n = STORIES.filter(s=>s.theme===t.name && s.decade===d).length;
+      return `<i class="${n?"on":""}" style="--h:${n?7+n*5:2}px" title="${d} · ${n} 篇"></i>`;
     }).join("");
-    return `<button class="theme-row ${active===t.name?"is-active":""}" data-theme="${t.name}" type="button">
-      <span><span class="name">${t.name}</span><span class="en">${t.en}</span></span>
-      <span class="spark" aria-hidden="true">${bars}</span>
-      <span class="count">${count} 篇 <span class="arrow">↗</span></span>
+    return `<button class="theme-card" data-theme="${t.name}" type="button">
+      <span class="card-top"><span class="card-id"><i class="card-dot" style="--dot:${t.color}"></i><span class="name">${t.name}</span></span><span class="card-count">${count} <span data-l="zh">篇</span><span data-l="en">stories</span></span></span>
+      <span class="en">${t.en}</span><span class="desc">${t.desc}</span>
+      <span class="spark" aria-hidden="true" style="grid-template-columns:repeat(${DECADES.length},1fr)">${bars}</span>
     </button>`;
   }).join("");
-  const selected = active ? themeOf(active) : null;
-  const list = filtered();
-  const panel = selected ? `
-    <h3 class="panel-title">${selected.name}</h3>
-    <p class="panel-desc">${selected.desc}</p>
-    <div class="story-stack">${list.map(s=>storyCard(s)).join("") || empty()}</div>
-  ` : `
-    <h3 class="panel-title">全部主题</h3>
-    <p class="panel-desc">从左侧选择主题。</p>
-    <div class="story-stack">${list.slice(0,6).map(s=>storyCard(s)).join("")}</div>
-    <p class="rail-note">显示前 6 篇。</p>
-  `;
-  $("#stageView").innerHTML = `
-    <div class="theme-grid">
-      <div class="theme-list">${themeRows}</div>
-      <aside class="theme-panel">${panel}</aside>
-    </div>`;
-  $$(".theme-row").forEach(b=>b.onclick=()=>{
-    const name=b.dataset.theme;
-    state.theme = state.theme===name ? null : name;
-    renderAll();
-  });
+  $("#stageView").innerHTML = `<div class="directory-grid">${cards}</div>`;
+  $$(".theme-card").forEach(b=>b.onclick=()=>{state.theme=b.dataset.theme;renderAll();});
 }
 
 function renderTimeline(){
-  const activeTheme = state.theme;
-  const themeMatch = s => !activeTheme || s.theme===activeTheme;
-  const decadeCols = DECADES.map(d=>{
-    const all = STORIES.filter(s=>s.decade===d && (!state.date||s.date===state.date));
-    const list = all.filter(themeMatch);
-    return `<div class="decade-col ${state.decade===d?"is-active":""} ${all.length?"":"empty-col"}">
-      <div class="decade-head"><b>${d}</b><span>${all.length} 篇${activeTheme?` · 主题 ${list.length}`:""}</span></div><div class="decade-line"></div>
-      ${all.length?all.map(s=>`<button class="tcard ${state.focus===s.id?"is-focus":""} ${themeMatch(s)?"":"is-dim"}" data-story="${s.id}" type="button">
-        <h4><span class="tdot" style="--dot:${themeOf(s.theme).color}"></span>${s.title}</h4><p>${s.theme} · ${s.year}</p>
-      </button>`).join(""):`<p class="rail-note">这个年代还没有收录故事。</p>`}
-    </div>`;
-  }).join("");
-  const ruler = DECADES.map(d=>`<button data-decade="${d}" aria-current="${state.decade===d}">${d.replace("s","")}</button>`).join("");
-  $("#stageView").innerHTML = `
-    <div class="ruler"><div class="ruler-line"></div><div class="ruler-grid">${ruler}</div></div>
-    <div class="timeline-scroll"><div class="decade-track">${decadeCols}</div></div>
-    <div class="axis-caption"><span>← 1820</span><span>2020 →</span></div>
-    <div class="timeline-foot"><span><b>当前主题：</b>${activeTheme||"全部"}</span><span><b>当前年代：</b>${state.decade||"全部"}</span><span>点年代查看故事。</span></div>`;
-  $$(".ruler-grid button").forEach(b=>b.onclick=()=>{
-    const d=b.dataset.decade; state.decade = state.decade===d ? null : d; state.view="timeline"; renderAll();
-  });
-  $$(".tcard").forEach(b=>b.onclick=()=>{state.focus=b.dataset.story; openDetail(b.dataset.story);});
-  requestAnimationFrame(()=>{
-    const sc=$(".timeline-scroll"); if(!sc) return;
-    const focus=storyOf(state.focus); const idx=state.decade?DECADES.indexOf(state.decade):(focus&&focus.decade?DECADES.indexOf(focus.decade):Math.max(0,DECADES.findIndex(d=>STORIES.some(s=>s.decade===d && themeMatch(s)))));
-    const idxSafe=Number.isFinite(idx)?idx:0; const rg=$('.ruler-grid'); const sync=()=>{if(rg) rg.style.transform=`translateX(${-sc.scrollLeft}px)`;}; const jump=()=>{sc.scrollLeft=Math.max(0,idxSafe*190-8); sync();}; jump(); sc.onscroll=sync; setTimeout(jump,150); setTimeout(jump,650); requestAnimationFrame(()=>requestAnimationFrame(jump));
-  });
-}
-
-function renderCalendar(){
-  const months = [];
-  const todayDate = state.date;
-  for(let m=0;m<12;m++){
-    const daysInMonth = new Date(2024,m+1,0).getDate();
-    const first = new Date(2024,m,1).getDay();
-    const cells=[];
-    for(let i=0;i<first;i++) cells.push(`<span class="day is-blank"></span>`);
-    for(let d=1;d<=daysInMonth;d++){
-      const mm=String(m+1).padStart(2,"0"), dd=String(d).padStart(2,"0"), date=`${mm}-${dd}`;
-      const n=countDate(date);
-      const active=state.date===date;
-      const dim = state.theme && n===0;
-      cells.push(`<button class="day ${n?"has-story":""} ${active?"is-active":""} ${dim?"is-dim":""}" data-date="${date}" type="button" ${n?"":"aria-disabled=true"} title="${date} · ${n} 篇">${d}</button>`);
-    }
-    months.push(`<section class="month"><h3>${m+1} 月<span>${cells.filter(x=>x.includes("has-story")).length} 个节点</span></h3><div class="weekdays"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div><div class="days">${cells.join("")}</div></section>`);
+  const decadeLabel = d => d==="pre1900" ? "1900 以前" : d;
+  if(state.decade){
+    const list = STORIES.filter(s=>s.decade===state.decade).sort((a,b)=>(b.year||0)-(a.year||0));
+    $("#stageView").innerHTML = `
+      <div class="drill-head">
+        <button class="drill-back" data-back="timeline" type="button"><span data-l="zh">← 全部年代</span><span data-l="en">← All eras</span></button>
+        <div><h2>${decadeLabel(state.decade)}</h2></div>
+        <span class="drill-count">${list.length} <span data-l="zh">篇</span><span data-l="en">stories</span></span>
+      </div>
+      <div class="story-grid">${list.map(s=>storyCard(s)).join("") || empty("这个年代还没有收录故事。")}</div>`;
+    $("[data-back=timeline]").onclick=()=>{state.decade=null;renderAll();};
+    return;
   }
-  const dateStories = todayDate ? STORIES.filter(s=>s.date===todayDate) : [];
-  const detail = todayDate ? `<aside class="day-detail"><p class="panel-kicker">${todayDate}</p><h3 class="panel-title">${todayDate.replace("-"," 月 ")} 日</h3><p class="panel-desc">${dateStories.length?`这一天有 ${dateStories.length} 个故事。`:"这一天暂无故事。"}</p><div class="story-stack">${dateStories.map(s=>storyCard(s)).join("") || empty("这一天暂无故事。")}</div></aside>` : `<aside class="day-detail"><p class="panel-kicker">日历</p><h3 class="panel-title">选择日期</h3><p class="panel-desc">查看这一天的故事。</p></aside>`;
-  $("#stageView").innerHTML = `
-    <div class="section-head"><h2>366 天日历</h2><p>按日期查看故事。</p></div>
-    <div class="calendar-wrap"><div class="months">${months.join("")}</div>${detail}</div>
-    <div class="legend"><span><i></i>有故事</span><span><i style="background:var(--rule-strong)"></i>无故事</span><span>当前主题：${state.theme||"全部"} · 当前年代：${state.decade||"全部"}</span></div>`;
-  $$(".day.has-story").forEach(b=>b.onclick=()=>{state.date=b.dataset.date;state.view="calendar";renderAll();});
-  requestAnimationFrame(()=>{
-    if(!state.date) return;
-    const monthIndex=Number(state.date.slice(0,2))-1;
-    const month=$(`.months .month:nth-child(${monthIndex+1})`);
-    if(month) month.scrollIntoView({block:"center",behavior:"smooth"});
-  });
-}
-
-function renderMatrix(){
-  const counts = {};
-  THEMES.forEach(t=>DECADES.forEach(d=>{counts[t.name+"|"+d]=STORIES.filter(s=>s.theme===t.name&&s.decade===d).length;}));
-  const max = Math.max(...Object.values(counts));
-  const head = `<div class="mcell mhead"></div>` + DECADES.map(d=>`<div class="mcell mhead">${d}</div>`).join("");
-  const rows = THEMES.map(t=>{
-    const cells = DECADES.map(d=>{
-      const n=counts[t.name+"|"+d];
-      const active = state.theme===t.name && state.decade===d;
-      const alpha = n ? 0.16 + (n/max)*0.42 : 0;
-      const style = n ? `background:${t.color}${Math.round(alpha*255).toString(16).padStart(2,"0")}` : "";
-      return `<button class="mcell mstat ${n?"has":""} ${active?"is-active":""}" data-mtheme="${t.name}" data-mdecade="${d}" style="${style}" title="${t.name} × ${d} · ${n} 篇" type="button">${n||""}</button>`;
-    }).join("");
-    return `<div class="mcell mtheme"><span class="mdot" style="--dot:${t.color}"></span>${t.name}</div>${cells}`;
+  const cards = DECADES.map(d=>{
+    const list = STORIES.filter(s=>s.decade===d).sort((a,b)=>(b.year||0)-(a.year||0));
+    if(!list.length) return "";
+    const samples = list.slice(0,3).map(s=>`<button class="era-sample" data-story="${s.id}" type="button"><span class="era-sample-title">${s.title}</span><span class="era-sample-meta">${s.theme} · ${s.year}</span></button>`).join("");
+    return `<article class="era-card">
+      <button class="era-top" data-decade="${d}" type="button"><span class="era-name">${decadeLabel(d)}</span><span class="era-count">${list.length} <span data-l="zh">篇</span><span data-l="en">stories</span></span></button>
+      <div class="era-samples">${samples}</div>
+      <button class="era-open" data-decade="${d}" type="button"><span data-l="zh">查看 ${decadeLabel(d)} 全部 →</span><span data-l="en">View all ${d} →</span></button>
+    </article>`;
   }).join("");
-  const matrix = $("#matrix");
-  matrix.style.gridTemplateColumns = `126px repeat(${DECADES.length}, minmax(56px, 1fr))`;
-  matrix.style.minWidth = `${126 + DECADES.length * 56}px`;
-  matrix.innerHTML = head + rows;
-  $$(".mstat").forEach(b=>b.onclick=()=>{
-    const t=b.dataset.mtheme, d=b.dataset.mdecade;
-    state.theme=t; state.decade=d; state.date=null; state.view="theme"; renderAll();
-    const n=counts[t+"|"+d];
-    $("#matrixNote").innerHTML = n ? `已筛选：<b>${t} · ${d}</b>，共 ${n} 篇。` : `暂无内容。`;
-  });
+  $("#stageView").innerHTML = `<div class="directory-grid">${cards}</div>`;
+  $$("[data-decade]").forEach(b=>b.onclick=()=>{state.decade=b.dataset.decade;renderAll();});
 }
 
 function renderAll(){
-  renderTabs(); renderFilterline(); renderRail(); renderMatrix();
+  renderTabs();
   if(state.view==="theme") renderTheme();
   if(state.view==="timeline") renderTimeline();
   $$("[data-story]").forEach(b=>b.onclick=()=>{state.focus=b.dataset.story; openDetail(b.dataset.story);});
@@ -614,9 +577,8 @@ function closeDetail(){$("#detail").hidden=true;document.body.style.overflow="";
 $("#detailClose").onclick=closeDetail;
 $("#detail").addEventListener("click",e=>{if(e.target.id==="detail") closeDetail();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#detail").hidden) closeDetail();});
-$("#reset").onclick=()=>{state.theme=null;state.decade=null;state.date=null;renderAll();};
 renderAll();
 </script>
-<script src="../assets/site.js?v=1794964897"></script>
+<script src="../../assets/site.js?v=1794971031"></script>
 </body>
 </html>

@@ -504,11 +504,12 @@ function renderTabs(){
 function renderFilterline(){
   const fl=$("#filterline"); if(!fl) return;
   const chips=[];
-  if(state.theme) chips.push(`<button class="chip" data-clear="theme" type="button">主题 · ${state.theme}<span class="close">×</span></button>`);
-  if(state.decade) chips.push(`<button class="chip" data-clear="decade" type="button">时间线 · ${state.decade}<span class="close">×</span></button>`);
-  if(state.date) chips.push(`<button class="chip" data-clear="date" type="button">日历 · ${state.date}<span class="close">×</span></button>`);
+  const L=(zh,en)=>isEn()?en:zh;
+  if(state.theme) chips.push(`<button class="chip" data-clear="theme" type="button">${L("主题","Theme")} · ${state.theme}<span class="close">×</span></button>`);
+  if(state.decade) chips.push(`<button class="chip" data-clear="decade" type="button">${L("时间线","Timeline")} · ${state.decade}<span class="close">×</span></button>`);
+  if(state.date) chips.push(`<button class="chip" data-clear="date" type="button">${L("日历","Calendar")} · ${state.date}<span class="close">×</span></button>`);
   const has = chips.length;
-  $("#filterline").innerHTML = (has ? chips.join("") : `<span class="filter-none">未锁定筛选</span>`) + (has ? `<button class="clear-all" id="clearAll" type="button">全部清除</button>`:"");
+  $("#filterline").innerHTML = (has ? chips.join("") : `<span class="filter-none">${L("未锁定筛选","No filters")}</span>`) + (has ? `<button class="clear-all" id="clearAll" type="button">${L("全部清除","Clear all")}</button>`:"");
 }
 
 function renderTheme(){
@@ -533,7 +534,7 @@ function renderTheme(){
     const count = STORIES.filter(s=>s.theme===t.name).length;
     const bars = DECADES.map(d=>{
       const n = STORIES.filter(s=>s.theme===t.name && s.decade===d).length;
-      return `<i class="${n?"on":""}" style="--h:${n?7+n*5:2}px" title="${d} · ${n} 篇"></i>`;
+      return `<i class="${n?"on":""}" style="--h:${n?7+n*5:2}px" title="${d} · ${n} ${isEn()?"stories":"篇"}"></i>`;
     }).join("");
     const cover = themeCover(t);
     return `<button class="theme-card" data-theme="${t.name}" type="button">
@@ -626,6 +627,6 @@ new MutationObserver(()=>{
 }).observe(document.documentElement,{attributes:true,attributeFilter:["data-lang"]});
 renderAll();
 </script>
-<script src="../assets/site.js?v=1794991044"></script>
+<script src="../assets/site.js?v=1794991619"></script>
 </body>
 </html>

@@ -319,13 +319,18 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 .foot-nav a:hover,.foot-utility a:hover{color:var(--ink)}
 .foot-utility{display:flex;justify-content:center;flex-wrap:wrap;gap:11px;font-size:9px;margin-bottom:8px}
 .foot-note{margin:0;line-height:1.8}
-.site-foot{display:flex;align-items:center;justify-content:center;gap:7px 13px;flex-wrap:wrap;
+.site-foot{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px 16px;
   max-width:1240px;margin:24px auto 0;padding:11px 28px;border-top:1px solid var(--rule);font-size:10.5px;color:var(--muted)}
 .site-foot a{color:var(--muted);text-decoration:none}
 .site-foot a:hover{color:var(--accent)}
-.site-foot .sf-brand{font-family:var(--serif);font-size:12px;letter-spacing:.14em;color:var(--ink);white-space:nowrap}
-.site-foot .sf-nav,.site-foot .sf-utility{display:flex;gap:11px;flex-wrap:wrap;justify-content:center}
-.site-foot .sf-utility{font-size:9px;color:var(--muted)}
+.site-foot .sf-left{justify-self:start;display:inline-flex;align-items:center;gap:3px;font-size:9.5px;color:var(--muted);white-space:nowrap;letter-spacing:.01em}
+.site-foot .sf-left a{color:inherit;border-bottom:1px solid transparent}
+.site-foot .sf-left a:hover{color:var(--accent);border-color:var(--accent)}
+.site-foot .sf-nav{justify-self:center;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.site-foot .sf-right{justify-self:end;display:inline-flex;align-items:center;font-size:9.5px;white-space:nowrap}
+.site-foot .sf-right a{border-bottom:1px solid transparent}
+.site-foot .sf-right a:hover{color:var(--accent);border-color:var(--accent)}
+.site-foot .sf-brand-short{display:none}
 .site-foot .sf-copy{display:inline-flex;align-items:center;font-size:9.5px;color:var(--muted);white-space:nowrap;letter-spacing:.01em}
 .site-foot .sf-copy a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
 .site-foot .sf-copy a:hover{color:var(--accent);border-color:var(--accent)}
@@ -364,8 +369,10 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   .drill-head{grid-template-columns:1fr;gap:10px;padding-bottom:18px}
   .drill-back{margin-top:0;justify-self:start}
   .drill-count{padding-top:0}
-  .site-foot{padding-left:18px;padding-right:18px;margin-top:18px;gap:6px 10px}
+  .site-foot{display:flex;align-items:center;justify-content:space-between;padding-left:18px;padding-right:18px;margin-top:18px;gap:6px 10px}
   .site-foot .sf-nav{display:none}
+  html[data-lang="en"] .site-foot .sf-brand-long{display:none}
+  html[data-lang="en"] .site-foot .sf-brand-short{display:inline}
   .matrix-section{padding-left:18px;padding-right:18px}
   .brand .sub{display:none}
   .tag{display:none}
@@ -425,23 +432,17 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
 </main>
 
 <footer class="site-foot">
-  <a class="sf-brand" href="../"><span data-l="zh">出尘入画</span><span data-l="en">Frame & Grain</span></a>
-  <nav class="sf-nav">
-    <a href="../"><span data-l="zh">尘画</span><span data-l="en">Frame & Grain</span></a>
+  <div class="sf-left"><span data-l="zh">© 2026 尘画 · <a href="https://www.chenhua.net">chenhua.net</a></span><span data-l="en">© 2026 <span class="sf-brand-long">Frame &amp; Grain</span><span class="sf-brand-short">Frame</span> · <a href="https://www.chenhua.net">chenhua.net</a></span></div>
+  <nav class="sf-nav" aria-label="站内导航">
+    <a href="../"><span data-l="zh">出尘入画</span><span data-l="en"><span class="sf-brand-long">Frame &amp; Grain</span><span class="sf-brand-short">Frame</span></span></a>
     <a href="../themes/"><span data-l="zh">主题</span><span data-l="en">Themes</span></a>
     <a href="../timeline/"><span data-l="zh">时间线</span><span data-l="en">Timeline</span></a>
     <a href="../today/"><span data-l="zh">日历</span><span data-l="en">Calendar</span></a>
     <a href="https://photo.chenhua.net/"><span data-l="zh">摄影</span><span data-l="en">Photography</span></a>
     <a href="https://paint.chenhua.net/"><span data-l="zh">绘画</span><span data-l="en">Painting</span></a>
-    <a href="../search/"><span data-l="zh">搜索</span><span data-l="en">Search</span></a>
     <a href="https://netcn.org/"><span data-l="zh">导航</span><span data-l="en">Directory</span></a>
   </nav>
-  <nav class="sf-utility">
-    <a href="../about/"><span data-l="zh">关于</span><span data-l="en">About</span></a>
-    <a href="../rights/"><span data-l="zh">授权</span><span data-l="en">Rights</span></a>
-    <a href="../legal/"><span data-l="zh">法律</span><span data-l="en">Legal</span></a>
-  </nav>
-  <span class="sf-copy"><span data-l="zh">© 2026 尘画 · <a href="https://www.chenhua.net">chenhua.net</a></span><span data-l="en">© 2026 Frame &amp; Grain · <a href="https://www.chenhua.net">chenhua.net</a></span></span>
+  <div class="sf-right"><a href="../legal/"><span data-l="zh">免责条款</span><span data-l="en">Disclaimer</span></a></div>
 </footer>
 </div>
 
@@ -634,6 +635,6 @@ new MutationObserver(()=>{
 }).observe(document.documentElement,{attributes:true,attributeFilter:["data-lang"]});
 renderAll();
 </script>
-<script src="../assets/site.js?v=1794996567"></script>
+<script src="../assets/site.js?v=1794999750"></script>
 </body>
 </html>

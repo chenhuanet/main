@@ -4,8 +4,19 @@
 <script>(function(){try{function ck(n){var m=document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)"));return m?decodeURIComponent(m[1]):""}var q=new URLSearchParams(location.search).get("lang");var l=q||ck("chenhua-lang")||localStorage.getItem("chenhua-lang")||"zh";if(l==="en"){document.documentElement.setAttribute("data-lang","en");document.documentElement.lang="en"}else{document.documentElement.setAttribute("data-lang","zh");document.documentElement.lang="zh-CN"}var t=ck("chenhua-theme")||localStorage.getItem("chenhua-theme");if(t!=="light"&&t!=="dark")t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>主题 · 尘画</title>
-<link rel="icon" type="image/svg+xml" href="../../assets/leaf/favicon.svg">
+<title>时间线 · 尘画</title>
+<meta name="description" content="按年代浏览尘画的历史摄影与绘画故事。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.chenhua.net/timeline/">
+<link rel="alternate" hreflang="zh-CN" href="https://www.chenhua.net/timeline/">
+<link rel="alternate" hreflang="en" href="https://www.chenhua.net/timeline/?lang=en">
+<meta property="og:type" content="website">
+<meta property="og:title" content="时间线 · 尘画">
+<meta property="og:description" content="按年代浏览尘画的历史摄影与绘画故事。">
+<meta property="og:url" content="https://www.chenhua.net/timeline/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<link rel="icon" type="image/svg+xml" href="../assets/leaf/favicon.svg">
 <style>
 :root{
   --paper:#f6f2ea; --paper-2:#f1ebdf; --panel:#fffdf8; --ink:#231f19; --muted:#6b6252;
@@ -350,25 +361,13 @@ h1{font-family:var(--serif);font-size:clamp(38px,6vw,82px);line-height:1.08;font
   .directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
-<title>时间线 · 尘画</title>
-<meta name="description" content="按年代浏览尘画的历史摄影与绘画故事。">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://www.chenhua.net/timeline/">
-<link rel="alternate" hreflang="zh-CN" href="https://www.chenhua.net/timeline/">
-<link rel="alternate" hreflang="en" href="https://www.chenhua.net/timeline/?lang=en">
-<meta property="og:type" content="website">
-<meta property="og:title" content="时间线 · 尘画">
-<meta property="og:description" content="按年代浏览尘画的历史摄影与绘画故事。">
-<meta property="og:url" content="https://www.chenhua.net/timeline/">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:locale:alternate" content="en_US">
 </head>
 <body>
 <div class="wrap">
 <header class="masthead">
   <div class="masthead-in">
     <a class="brand" href="../" aria-label="返回尘画主站">
-      <img class="brand-mark" src="../../assets/leaf/think.svg" width="30" height="30" alt="" aria-hidden="true" decoding="async"><span class="wm"><span class="wm-lite">出</span><span class="wm-strong">尘</span><span class="wm-lite">入</span><span class="wm-strong">画</span></span><span class="sub"><span data-l="zh">尘归尘，画归画</span><span data-l="en">Image as history</span></span>
+      <img class="brand-mark" src="../assets/leaf/think.svg" width="30" height="30" alt="" aria-hidden="true" decoding="async"><span class="wm"><span class="wm-lite">出</span><span class="wm-strong">尘</span><span class="wm-lite">入</span><span class="wm-strong">画</span></span><span class="sub"><span data-l="zh">尘归尘，画归画</span><span data-l="en">Image as history</span></span>
     </a>
     <nav class="masthead-nav" aria-label="全站导航">
       <a href="../"><span data-l="zh">尘画</span><span data-l="en">Chenhua</span></a>
@@ -579,6 +578,6 @@ $("#detail").addEventListener("click",e=>{if(e.target.id==="detail") closeDetail
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#detail").hidden) closeDetail();});
 renderAll();
 </script>
-<script src="../../assets/site.js?v=1794971031"></script>
+<script src="../assets/site.js?v=1794971452"></script>
 </body>
 </html>

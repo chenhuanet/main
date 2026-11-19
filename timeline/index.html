@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://www.chenhua.net/timeline/">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:locale:alternate" content="en_US">
-<link rel="icon" type="image/svg+xml" href="../../assets/leaf/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../assets/leaf/favicon.svg">
 <style>
 :root{
   --paper:#f6f2ea; --paper-2:#f1ebdf; --panel:#fffdf8; --ink:#231f19; --muted:#6b6252;
@@ -409,7 +409,7 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 <header class="masthead">
   <div class="masthead-in">
     <a class="brand" href="../" aria-label="返回尘画主站">
-      <img class="brand-mark" src="../../assets/leaf/think.svg" width="30" height="30" alt="" aria-hidden="true" decoding="async"><span class="wm"><span class="wm-lite">出</span><span class="wm-strong">尘</span><span class="wm-lite">入</span><span class="wm-strong">画</span></span><span class="sub"><span data-l="zh">尘归尘，画归画</span><span data-l="en">Image as history</span></span>
+      <img class="brand-mark" src="../assets/leaf/think.svg" width="30" height="30" alt="" aria-hidden="true" decoding="async"><span class="wm"><span class="wm-lite">出</span><span class="wm-strong">尘</span><span class="wm-lite">入</span><span class="wm-strong">画</span></span><span class="sub"><span data-l="zh">尘归尘，画归画</span><span data-l="en">Image as history</span></span>
     </a>
     <nav class="masthead-nav" aria-label="全站导航">
       <a href="../themes/"><span data-l="zh">主题</span><span data-l="en">Themes</span></a>
@@ -431,7 +431,7 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 
 <style>
 /* ---------- 主题库：摄影与绘画共用同一种卡片 ---------- */
-.theme-library{max-width:1240px;margin:0 auto;padding:30px 28px 46px}
+.theme-library{max-width:min(100%,1760px);margin:0 auto;padding:28px clamp(18px,3vw,48px) 46px}
 .lib-section{border-top:1px solid var(--rule);padding:23px 0 9px}
 .lib-section:first-of-type{border-top:0;padding-top:4px}
 .lib-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 14px}
@@ -449,79 +449,92 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 .lib-card h3 span{display:block}
 .lib-card h3 span[data-l="en"]{font-size:10px;letter-spacing:.12em;color:var(--muted);margin-top:4px;font-family:var(--sans,ui-sans-serif,sans-serif);text-transform:none}
 .lib-card p{font-size:11px;line-height:1.75;color:var(--muted);margin:0}
-@media(max-width:1050px){.lib-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:760px){.lib-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lib-thumb img{height:128px}.theme-library{padding:22px 20px 34px}}
+.duo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6vw,42px);align-items:start}
+.duo-col{min-width:0}
+.lib-list{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.lib-list .lib-thumb img{height:clamp(180px,16vw,260px)}
+.lib-list .lib-body{min-height:0;padding:13px 15px 15px}
+.lib-list .lib-card h3{font-size:clamp(22px,2vw,28px)}
+.lib-list .lib-card p{font-size:12px;line-height:1.8}
+.movement-index{margin-top:26px;border-top:1px solid var(--rule);padding-top:15px}
+.mi-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 11px}
+.mi-head h3{font-family:var(--serif);font-weight:400;font-size:19px;margin:0}
+.mi-head span{font-size:9px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+.movement-index .movement-links{display:flex;flex-wrap:wrap;gap:7px}
+.movement-index .movement-links a{display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--line);padding:6px 9px;text-decoration:none;color:var(--muted);font-size:10px;line-height:1.2}
+.movement-index .movement-links a:hover{border-color:var(--accent);color:var(--text)}
+.movement-index .movement-links a b{font-weight:400;color:var(--text);font-family:var(--serif);font-size:13px}
+@media(max-width:1050px){.lib-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.duo-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}}
+@media(max-width:760px){.lib-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lib-thumb img{height:128px}.theme-library{padding:22px 20px 34px}.duo-grid{grid-template-columns:1fr}.lib-list .lib-thumb img{height:160px}}
 @media(max-width:460px){.lib-grid{grid-template-columns:1fr}}
 
 /* ---------- 双轨年代轴：左绘画，右摄影 ---------- */
-.dual-timeline{max-width:1240px;margin:0 auto;padding:28px 28px 50px}
-.dual-timeline h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 18px}
-.axis-head{display:grid;grid-template-columns:minmax(0,1fr) 118px minmax(0,1fr);gap:20px;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:9px 0}
+.dual-timeline{max-width:none;width:min(100%,1760px);margin:0 auto;padding:18px clamp(18px,3vw,48px) 54px}
+.axis-head{display:grid;grid-template-columns:minmax(0,1fr) clamp(96px,8vw,138px) minmax(0,1fr);gap:clamp(16px,2.4vw,36px);border:0;padding:10px 0 4px}
 .axis-head span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .axis-head span:nth-child(1){text-align:right;color:#b28b5d}
 .axis-head span:nth-child(2){text-align:center}
 .axis-head span:nth-child(3){color:var(--accent)}
 .dual-axis{position:relative}
 .dual-axis:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--rule-strong);transform:translateX(-.5px)}
-.axis-row{display:grid;grid-template-columns:minmax(0,1fr) 118px minmax(0,1fr);gap:20px;border-bottom:1px solid var(--rule);padding:17px 0}
-.axis-side{min-width:0;display:flex;flex-direction:column;gap:9px}
-.axis-side.paint{padding-right:8px}
-.axis-side.photo{padding-left:8px}
+.axis-row{display:grid;grid-template-columns:minmax(0,1fr) clamp(96px,8vw,138px) minmax(0,1fr);gap:clamp(16px,2.4vw,36px);border:0;padding:24px 0}
+.axis-side{min-width:0;display:flex;flex-direction:column;gap:14px}
+.axis-side.paint{padding-right:clamp(4px,1vw,16px)}
+.axis-side.photo{padding-left:clamp(4px,1vw,16px)}
 .axis-year{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:20px;position:relative;z-index:1}
-.axis-year:before{content:"";position:absolute;top:7px;left:50%;width:7px;height:7px;border-radius:50%;background:var(--accent);transform:translateX(-50%);box-shadow:0 0 0 4px var(--paper);z-index:2}
-.axis-year b{font-family:var(--serif);font-weight:400;font-size:15px;line-height:1.2;white-space:nowrap;background:var(--paper);padding:3px 6px}
-.axis-card{display:grid;grid-template-columns:70px minmax(0,1fr);gap:9px;align-items:center;text-decoration:none;color:var(--ink);min-width:0;padding:5px 0;border-bottom:1px dotted var(--rule)}
-.axis-card:last-child{border-bottom:0}
-.axis-card img{width:70px;height:54px;object-fit:cover;display:block;filter:saturate(.92)}
+.axis-year:before{content:"";position:absolute;top:7px;left:50%;width:9px;height:9px;border-radius:50%;background:var(--accent);transform:translateX(-50%);box-shadow:0 0 0 5px var(--paper);z-index:2}
+.axis-year b{font-family:var(--serif);font-weight:400;font-size:clamp(16px,1.4vw,20px);line-height:1.2;white-space:nowrap;background:var(--paper);padding:3px 8px}
+.axis-card{display:grid;grid-template-columns:minmax(0,44%) minmax(0,1fr);gap:16px;align-items:center;text-decoration:none;color:var(--ink);min-width:0;padding:6px 0;border:0}
+.axis-card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;filter:saturate(.92)}
 .axis-card .ac{min-width:0;display:flex;flex-direction:column;justify-content:center}
-.axis-card h3{font-family:var(--serif);font-weight:400;font-size:15px;line-height:1.3;margin:0 0 3px}
-.axis-card h3 span[data-l="en"]{font-size:9px;letter-spacing:.06em;color:var(--muted);font-family:var(--sans,ui-sans-serif,sans-serif);margin-top:2px}
-.axis-card .ac span{font-size:9px;color:var(--muted);line-height:1.45}
-.axis-side.paint .axis-card{grid-template-columns:minmax(0,1fr) 70px;text-align:right}
+.axis-card h3{font-family:var(--serif);font-weight:400;font-size:clamp(16px,1.35vw,20px);line-height:1.35;margin:0 0 5px}
+.axis-card h3 span[data-l="en"]{font-size:10.5px;letter-spacing:.06em;color:var(--muted);font-family:var(--sans,ui-sans-serif,sans-serif);margin-top:3px}
+.axis-card .ac span{font-size:11px;color:var(--muted);line-height:1.5}
+.axis-side.paint .axis-card{grid-template-columns:minmax(0,1fr) minmax(0,44%);text-align:right}
 .axis-side.paint .axis-card img{grid-column:2;grid-row:1}
 .axis-side.paint .axis-card .ac{grid-column:1;grid-row:1;align-items:flex-end}
 .axis-empty{min-height:1px}
 @media(max-width:860px){
-  .axis-head{grid-template-columns:1fr 82px 1fr;gap:10px}
-  .axis-row{grid-template-columns:1fr 82px 1fr;gap:10px}
-  .axis-card{grid-template-columns:54px minmax(0,1fr)}
-  .axis-card img{width:54px;height:44px}
-  .axis-side.paint .axis-card{grid-template-columns:minmax(0,1fr) 54px}
-  .axis-card h3{font-size:14px}
+  .axis-head{grid-template-columns:1fr 86px 1fr;gap:12px}
+  .axis-row{grid-template-columns:1fr 86px 1fr;gap:12px}
+  .axis-card{grid-template-columns:minmax(0,40%) minmax(0,1fr);gap:12px}
+  .axis-side.paint .axis-card{grid-template-columns:minmax(0,1fr) minmax(0,40%)}
+  .axis-card h3{font-size:15px}
 }
 @media(max-width:620px){
-  .dual-timeline{padding:22px 20px 34px}
+  .dual-timeline{padding:20px 18px 34px}
   .axis-head{display:none}
-  .dual-axis:before{display:none}
-  .axis-row{grid-template-columns:1fr;gap:0;padding:0 0 14px}
-  .axis-year{align-items:flex-start;text-align:left;padding:12px 0 9px;border-bottom:1px solid var(--rule);margin-bottom:8px}
-  .axis-year b,.axis-year em{background:none;padding:0}
+  .dual-axis:before{display:block;left:8px}
+  .axis-row{grid-template-columns:1fr;gap:0;padding:0 0 20px 28px;position:relative}
+  .axis-row:before{content:"";position:absolute;left:-1px;top:18px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--paper)}
+  .axis-year{align-items:flex-start;text-align:left;padding:8px 0 10px;border:0;margin-bottom:0}
+  .axis-year:before{display:none}
+  .axis-year b{background:none;padding:0}
   .axis-side{padding:0}
-  .axis-side.paint .axis-card{grid-template-columns:54px minmax(0,1fr);text-align:left}
+  .axis-side.paint .axis-card{grid-template-columns:minmax(0,40%) minmax(0,1fr);text-align:left}
   .axis-side.paint .axis-card img{grid-column:1;grid-row:1}
   .axis-side.paint .axis-card .ac{grid-column:2;grid-row:1;align-items:flex-start}
 }
 </style>
 
-<main class="dual-timeline">
-<h1><span data-l="zh">时间线</span><span data-l="en">Timeline</span></h1>
+<main class="dual-timeline" aria-label="Timeline">
 <div class="axis-head"><span><span data-l="zh">绘画</span><span data-l="en">Painting</span></span><span><span data-l="zh">年代</span><span data-l="en">Years</span></span><span><span data-l="zh">摄影</span><span data-l="en">Photography</span></span></div>
 <div class="dual-axis"><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-400-1300.html">
-<img src="https://19century.chenhua.net/paintings/400s/gu-kaizhi-admonitions-scroll-400-030252b7.jpg" alt="400–1300" loading="eager"><div class="ac"><h3><span data-l="zh">400–1300</span><span data-l="en">400–1300</span></h3><span><span data-l="zh">线的宗教与山的发现</span><span data-l="en">Religious line and the discovery of mountain</span></span></div></a></div>
+<img src="https://19century.chenhua.net/paintings/400s/gu-kaizhi-admonitions-scroll-400-030252b7.jpg?v=canon77" alt="400–1300" loading="eager"><div class="ac"><h3><span data-l="zh">400–1300</span><span data-l="en">400–1300</span></h3><span><span data-l="zh">线的宗教与山的发现</span><span data-l="en">Religious line and the discovery of mountain</span></span></div></a></div>
 <div class="axis-year"><b>400–1300</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-07-04-chinese-astronomy.html">
 <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Crab_Nebula.jpg/1280px-Crab_Nebula.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="1054年7月4日：中国天文学史" loading="eager"><div class="ac"><h3><span data-l="zh">1054年7月4日：中国天文学史</span><span data-l="en">July 4, 1054: Chinese astronomy</span></h3><span><span data-l="zh">1054 · 太空探索</span><span data-l="en">1054 · Space Exploration</span></span></div></a></div>
 </div><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-1300-1500.html">
-<img src="https://19century.chenhua.net/paintings/1430s/van-eyck-arnolfini-1434-41c57660.jpg" alt="1300–1500" loading="eager"><div class="ac"><h3><span data-l="zh">1300–1500</span><span data-l="en">1300–1500</span></h3><span><span data-l="zh">文艺复兴的发明</span><span data-l="en">The invention of the Renaissance</span></span></div></a></div>
+<img src="https://19century.chenhua.net/paintings/1430s/van-eyck-arnolfini-1434-41c57660.jpg?v=canon77" alt="1300–1500" loading="eager"><div class="ac"><h3><span data-l="zh">1300–1500</span><span data-l="en">1300–1500</span></h3><span><span data-l="zh">文艺复兴的发明</span><span data-l="en">The invention of the Renaissance</span></span></div></a></div>
 <div class="axis-year"><b>1300–1500</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-09-06-christopher-columbus.html">
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Christopher_Columbus_Face.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1492年9月6日：克里斯托弗·哥伦布" loading="eager"><div class="ac"><h3><span data-l="zh">1492年9月6日：克里斯托弗·哥伦布</span><span data-l="en">September 6, 1492: Christopher Columbus</span></h3><span><span data-l="zh">1492 · 社会与日常</span><span data-l="en">1492 · Society &amp; Everyday</span></span></div></a><a class="axis-card" href="/story/today-02-15-christopher-columbus-2.html">
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Christopher_Columbus_Face.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1493年2月15日：克里斯托弗·哥伦布" loading="eager"><div class="ac"><h3><span data-l="zh">1493年2月15日：克里斯托弗·哥伦布</span><span data-l="en">February 15, 1493: Christopher Columbus</span></h3><span><span data-l="zh">1493 · 社会与日常</span><span data-l="en">1493 · Society &amp; Everyday</span></span></div></a></div>
 </div><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-1500-1600.html">
-<img src="https://19century.chenhua.net/paintings/1500s/leonardo-mona-lisa-1503-27686884.jpg" alt="1500–1600" loading="eager"><div class="ac"><h3><span data-l="zh">1500–1600</span><span data-l="en">1500–1600</span></h3><span><span data-l="zh">盛期与北方</span><span data-l="en">High Renaissance and the North</span></span></div></a></div>
+<img src="https://19century.chenhua.net/paintings/1500s/leonardo-mona-lisa-1503-27686884.jpg?v=canon77" alt="1500–1600" loading="eager"><div class="ac"><h3><span data-l="zh">1500–1600</span><span data-l="en">1500–1600</span></h3><span><span data-l="zh">盛期与北方</span><span data-l="en">High Renaissance and the North</span></span></div></a></div>
 <div class="axis-year"><b>1500–1600</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-04-22-pedro-alvares-cabral-2.html">
 <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Cantino_planisphere_%281502%29.jpg/1280px-Cantino_planisphere_%281502%29.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="1500年4月22日：佩德罗·阿尔瓦雷斯·卡布拉尔" loading="eager"><div class="ac"><h3><span data-l="zh">1500年4月22日：佩德罗·阿尔瓦雷斯·卡布拉尔</span><span data-l="en">April 22, 1500: Pedro Álvares Cabral</span></h3><span><span data-l="zh">1500 · 社会与日常</span><span data-l="en">1500 · Society &amp; Everyday</span></span></div></a><a class="axis-card" href="/story/today-06-04-old-st-paul-s-cathedral.html">
@@ -529,7 +542,7 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/English_Ships_and_the_Spanish_Armada%2C_August_1588_RMG_BHC0262.jpg/1280px-English_Ships_and_the_Spanish_Armada%2C_August_1588_RMG_BHC0262.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="1580年9月26日：法蘭西斯·德瑞克" loading="eager"><div class="ac"><h3><span data-l="zh">1580年9月26日：法蘭西斯·德瑞克</span><span data-l="en">September 26, 1580: Francis Drake</span></h3><span><span data-l="zh">1580 · 社会与日常</span><span data-l="en">1580 · Society &amp; Everyday</span></span></div></a></div>
 </div><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-1600-1700.html">
-<img src="https://19century.chenhua.net/paintings/1600s/caravaggio-calling-of-matthew-1600-b15c3300.jpg" alt="1600–1700" loading="eager"><div class="ac"><h3><span data-l="zh">1600–1700</span><span data-l="en">1600–1700</span></h3><span><span data-l="zh">巴洛克剧场</span><span data-l="en">The Baroque theatre</span></span></div></a></div>
+<img src="https://19century.chenhua.net/paintings/1600s/caravaggio-calling-of-matthew-1600-b15c3300.jpg?v=canon77" alt="1600–1700" loading="eager"><div class="ac"><h3><span data-l="zh">1600–1700</span><span data-l="en">1600–1700</span></h3><span><span data-l="zh">巴洛克剧场</span><span data-l="en">The Baroque theatre</span></span></div></a></div>
 <div class="axis-year"><b>1600–1700</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-04-28-university-of-santo-tomas-2.html">
 <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/FvfUST9617_43.JPG/1280px-FvfUST9617_43.JPG?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="1611年4月28日：聖多默大學 (菲律賓)" loading="eager"><div class="ac"><h3><span data-l="zh">1611年4月28日：聖多默大學 (菲律賓)</span><span data-l="en">April 28, 1611: University of Santo Tomas</span></h3><span><span data-l="zh">1611 · 社会与日常</span><span data-l="en">1611 · Society &amp; Everyday</span></span></div></a><a class="axis-card" href="/story/today-09-04-great-fire-of-london.html">
@@ -537,7 +550,7 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Stockholms_slott_Rehn_1770.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1697年5月7日：三王冠宮" loading="eager"><div class="ac"><h3><span data-l="zh">1697年5月7日：三王冠宮</span><span data-l="en">May 7, 1697: Tre Kronor (castle)</span></h3><span><span data-l="zh">1697 · 社会与日常</span><span data-l="en">1697 · Society &amp; Everyday</span></span></div></a></div>
 </div><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-1700-1800.html">
-<img src="https://19century.chenhua.net/paintings/1710s/watteau-pilgrimage-cythera-1717-1a35288d.jpg" alt="1700–1800" loading="eager"><div class="ac"><h3><span data-l="zh">1700–1800</span><span data-l="en">1700–1800</span></h3><span><span data-l="zh">享乐、物与启蒙</span><span data-l="en">Pleasure, things and Enlightenment</span></span></div></a></div>
+<img src="https://19century.chenhua.net/paintings/1710s/watteau-pilgrimage-cythera-1717-1a35288d.jpg?v=canon77" alt="1700–1800" loading="eager"><div class="ac"><h3><span data-l="zh">1700–1800</span><span data-l="en">1700–1800</span></h3><span><span data-l="zh">享乐、物与启蒙</span><span data-l="en">Pleasure, things and Enlightenment</span></span></div></a></div>
 <div class="axis-year"><b>1700–1800</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-01-08-george-frideric-handel-2.html">
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Arms_of_the_Foundling_Hospital_with_an_admission_ticket_%28BM_1858%2C0417.578%29.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1735年1月8日：格奥尔格·弗里德里希·亨德尔" loading="eager"><div class="ac"><h3><span data-l="zh">1735年1月8日：格奥尔格·弗里德里希·亨德尔</span><span data-l="en">January 8, 1735: George Frideric Handel</span></h3><span><span data-l="zh">1735 · 艺术与图像</span><span data-l="en">1735 · Art &amp; Image</span></span></div></a><a class="axis-card" href="/story/today-08-19-seven-years-war.html">
@@ -546,7 +559,7 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Santa_Clara_de_Asis_circa_1897_Adam_Clark_Vroman.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1777年1月12日：圣克拉拉传教所" loading="eager"><div class="ac"><h3><span data-l="zh">1777年1月12日：圣克拉拉传教所</span><span data-l="en">January 12, 1777: Mission Santa Clara de Asís</span></h3><span><span data-l="zh">1777 · 社会与日常</span><span data-l="en">1777 · Society &amp; Everyday</span></span></div></a></div>
 </div><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-1800-1880.html">
-<img src="https://19century.chenhua.net/paintings/1810s/friedrich-wanderer-1818-07b2a4d8.jpg" alt="1800–1880" loading="eager"><div class="ac"><h3><span data-l="zh">1800–1880</span><span data-l="en">1800–1880</span></h3><span><span data-l="zh">革命、风暴与现实主义</span><span data-l="en">Revolution, storm and Realism</span></span></div></a></div>
+<img src="https://19century.chenhua.net/paintings/1810s/friedrich-wanderer-1818-07b2a4d8.jpg?v=canon77" alt="1800–1880" loading="eager"><div class="ac"><h3><span data-l="zh">1800–1880</span><span data-l="en">1800–1880</span></h3><span><span data-l="zh">革命、风暴与现实主义</span><span data-l="en">Revolution, storm and Realism</span></span></div></a></div>
 <div class="axis-year"><b>1800–1880</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-03-16-united-states-congress-2.html">
 <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/USS_Bon_Homme_Richard_%28CVA-31%29_underway_in_the_Gulf_of_Tonkin_on_2_November_1964.jpg/1280px-USS_Bon_Homme_Richard_%28CVA-31%29_underway_in_the_Gulf_of_Tonkin_on_2_November_1964.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="1802年3月16日：美国国会" loading="eager"><div class="ac"><h3><span data-l="zh">1802年3月16日：美国国会</span><span data-l="en">March 16, 1802: United States Congress</span></h3><span><span data-l="zh">1802 · 政治与制度</span><span data-l="en">1802 · Politics &amp; Institutions</span></span></div></a><a class="axis-card" href="/story/today-02-24-theatre-royal-drury-lane-2.html">
@@ -555,7 +568,7 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/A_View_of_Halifax_-_Thomas_Davies.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1814年8月24日：1812年战争" loading="eager"><div class="ac"><h3><span data-l="zh">1814年8月24日：1812年战争</span><span data-l="en">August 24, 1814: War of 1812</span></h3><span><span data-l="zh">1814 · 战争与冲突</span><span data-l="en">1814 · War &amp; Conflict</span></span></div></a></div>
 </div><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-1880-1914.html">
-<img src="https://19century.chenhua.net/paintings/1880s/van-gogh-starry-night-1889-2f15d5be.jpg" alt="1880–1914" loading="eager"><div class="ac"><h3><span data-l="zh">1880–1914</span><span data-l="en">1880–1914</span></h3><span><span data-l="zh">光、色彩与内心</span><span data-l="en">Light, colour and the inner world</span></span></div></a></div>
+<img src="https://19century.chenhua.net/paintings/1880s/van-gogh-starry-night-1889-2f15d5be.jpg?v=canon77" alt="1880–1914" loading="eager"><div class="ac"><h3><span data-l="zh">1880–1914</span><span data-l="en">1880–1914</span></h3><span><span data-l="zh">光、色彩与内心</span><span data-l="en">Light, colour and the inner world</span></span></div></a></div>
 <div class="axis-year"><b>1880–1914</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-07-02-james-a-garfield.html">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Garfield_assassination_engraving_cropped.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1881年7月2日：詹姆斯·艾布拉姆·加菲尔德" loading="eager"><div class="ac"><h3><span data-l="zh">1881年7月2日：詹姆斯·艾布拉姆·加菲尔德</span><span data-l="en">July 2, 1881: James A. Garfield</span></h3><span><span data-l="zh">1881 · 政治与制度</span><span data-l="en">1881 · Politics &amp; Institutions</span></span></div></a><a class="axis-card" href="/story/brooklyn-bridge-1883.html">
@@ -564,7 +577,7 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/RoyalVisitSenate.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" alt="1887年6月23日：加拿大國會" loading="eager"><div class="ac"><h3><span data-l="zh">1887年6月23日：加拿大國會</span><span data-l="en">June 23, 1887: Parliament of Canada</span></h3><span><span data-l="zh">1887 · 政治与制度</span><span data-l="en">1887 · Politics &amp; Institutions</span></span></div></a></div>
 </div><div class="axis-row">
 <div class="axis-side paint"><a class="axis-card" href="https://paint.chenhua.net/history/period-1914-1930.html">
-<img src="https://20century.chenhua.net/paintings/1910s/gris-portrait-of-picasso-1912-fb9ecdd1.jpg" alt="1914–1930" loading="eager"><div class="ac"><h3><span data-l="zh">1914–1930</span><span data-l="en">1914–1930</span></h3><span><span data-l="zh">拆解与抽象</span><span data-l="en">Dismantling and abstraction</span></span></div></a></div>
+<img src="https://20century.chenhua.net/paintings/1910s/gris-portrait-of-picasso-1912-fb9ecdd1.jpg?v=canon77" alt="1914–1930" loading="eager"><div class="ac"><h3><span data-l="zh">1914–1930</span><span data-l="en">1914–1930</span></h3><span><span data-l="zh">拆解与抽象</span><span data-l="en">Dismantling and abstraction</span></span></div></a></div>
 <div class="axis-year"><b>1914–1930</b></div>
 <div class="axis-side photo"><a class="axis-card" href="/story/today-07-29-river-monitor.html">
 <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/USS_Neosho_%281863-1873%29_-_NH_60617.jpg/1280px-USS_Neosho_%281863-1873%29_-_NH_60617.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="1914年7月29日：内河重炮舰" loading="eager"><div class="ac"><h3><span data-l="zh">1914年7月29日：内河重炮舰</span><span data-l="en">July 29, 1914: River monitor</span></h3><span><span data-l="zh">1914 · 社会与日常</span><span data-l="en">1914 · Society &amp; Everyday</span></span></div></a><a class="axis-card" href="/story/panama-canal-1914.html">
@@ -611,6 +624,6 @@ h1,.focus-title,.theme-card .name,.era-card .era-name,.drill-head h2,.section-he
   <div class="sf-right"><a href="../legal/"><span data-l="zh">免责条款</span><span data-l="en">Disclaimer</span></a></div>
 </footer>
 </div>
-<script src="../../assets/site.js?v=1795059372"></script>
+<script src="../assets/site.js?v=202611192300"></script>
 </body>
 </html>

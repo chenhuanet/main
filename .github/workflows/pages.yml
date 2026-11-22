@@ -18,14 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-        with:
-          cname: chenhua.net
-      - name: Set Pages custom domain
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh api --method PUT "repos/${GITHUB_REPOSITORY}/pages" -f cname=chenhua.net -f build_type=workflow
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .

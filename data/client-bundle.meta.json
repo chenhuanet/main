@@ -1,11 +1,11 @@
 {
   "site": "main",
   "file": "client-bundle.js",
-  "records": 4048,
+  "records": 4079,
   "stories": 330,
-  "notes": 4048,
-  "search_records": 4048,
+  "notes": 4079,
+  "search_records": 4079,
   "search_stories": 330,
-  "bytes": 4952803,
-  "sha256": "5c8a18428f371a850e97fc9d39679a681298e54cf075d51762a923972bb15a1c"
+  "bytes": 4979933,
+  "sha256": "c38e4c0ccf88e9a42d8b2123d705f1c6d4ff0ac69a3ebf8f803b1b612b68a5a6"
 }

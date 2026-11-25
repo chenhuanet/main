@@ -121,6 +121,20 @@
 .early-wrap .g-today .g-card .pic{aspect-ratio:1/1}
 .early-wrap .g-today h2{font-size:16px;margin:0 0 8px}
 @media(max-width:900px){.early-wrap .g-hero{grid-template-columns:1fr}.early-wrap .g-grid,.early-wrap .g-family,.early-wrap .g-today{grid-template-columns:repeat(2,minmax(0,1fr))}.early-wrap .g-grid.three{grid-template-columns:1fr}.early-wrap .g-pair-grid{grid-template-columns:1fr 1fr}.early-wrap .g-period{grid-template-columns:1fr}}
+
+/* Full photo-record index: plain rows, no thumbnails, one page per era. */
+.rec-list{list-style:none;margin:16px 0;padding:0;display:grid;gap:0}
+.rec-list li{display:grid;grid-template-columns:76px minmax(0,1fr);gap:14px;border-top:1px solid var(--line);padding:10px 0;font-size:13px;line-height:1.7}
+.rec-list .ry{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.03em}
+.rec-list a{display:block;color:var(--text);text-decoration:none;font-weight:500}
+.rec-list a:hover{color:var(--accent)}
+.rec-list .rm{display:block;font-size:11px;color:var(--dim);margin-top:2px}
+@media(max-width:719px){.rec-list li{grid-template-columns:56px minmax(0,1fr);gap:10px;font-size:12px}}
+
+/* Global pages sit directly under body, not inside s-shell: restore the page gutter. */
+.ph-shell{max-width:1240px;margin:0 auto;padding:0 28px 64px}
+@media(max-width:719px){.ph-shell{padding:0 18px 48px}}
+@media(max-width:900px){.early-wrap .g-family{grid-template-columns:1fr}.early-wrap .g-pair-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body data-title-zh="时间与日常：一天怎样被画 · 绘画 · 尘画" data-title-en="时间与日常：一天怎样被画 · 绘画 · 尘画">

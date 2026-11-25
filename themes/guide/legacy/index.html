@@ -121,6 +121,20 @@
 .early-wrap .g-today .g-card .pic{aspect-ratio:1/1}
 .early-wrap .g-today h2{font-size:16px;margin:0 0 8px}
 @media(max-width:900px){.early-wrap .g-hero{grid-template-columns:1fr}.early-wrap .g-grid,.early-wrap .g-family,.early-wrap .g-today{grid-template-columns:repeat(2,minmax(0,1fr))}.early-wrap .g-grid.three{grid-template-columns:1fr}.early-wrap .g-pair-grid{grid-template-columns:1fr 1fr}.early-wrap .g-period{grid-template-columns:1fr}}
+
+/* Full photo-record index: plain rows, no thumbnails, one page per era. */
+.rec-list{list-style:none;margin:16px 0;padding:0;display:grid;gap:0}
+.rec-list li{display:grid;grid-template-columns:76px minmax(0,1fr);gap:14px;border-top:1px solid var(--line);padding:10px 0;font-size:13px;line-height:1.7}
+.rec-list .ry{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.03em}
+.rec-list a{display:block;color:var(--text);text-decoration:none;font-weight:500}
+.rec-list a:hover{color:var(--accent)}
+.rec-list .rm{display:block;font-size:11px;color:var(--dim);margin-top:2px}
+@media(max-width:719px){.rec-list li{grid-template-columns:56px minmax(0,1fr);gap:10px;font-size:12px}}
+
+/* Global pages sit directly under body, not inside s-shell: restore the page gutter. */
+.ph-shell{max-width:1240px;margin:0 auto;padding:0 28px 64px}
+@media(max-width:719px){.ph-shell{padding:0 18px 48px}}
+@media(max-width:900px){.early-wrap .g-family{grid-template-columns:1fr}.early-wrap .g-pair-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body data-title-zh="旧版主题导览" data-title-en="旧版主题导览">
@@ -128,18 +142,18 @@
 <main class="ph-shell"><div class="early-wrap"><div class="early-wrap">
 <article class="g-guide">
   <p class="g-kicker"><span data-l="zh">阅读指南 · 19世纪前</span><span data-l="en">Reader’s guide · Pre-19th Century</span></p>
-  <h1><span data-l="zh">怎样读这 473 件</span><span data-l="en">How to read 473 works</span></h1>
-  <p class="g-lede"><span data-l="zh">这不是一部完整的全球绘画史。它是一份从 400 年到 1799 年的可检索样本：473 件作品，按 10 个地域、七个时间段和六个主题交叉编排。每件作品都能回到详情页，核对馆藏、来源、授权和图像版本。</span><span data-l="en">This is not a complete global history of painting. It is a searchable sample from 400 to 1799: 473 works, cross-arranged by 10 regions, seven periods and six themes. Every work leads back to a detail page with its holding, source, licence and image record.</span></p>
+  <h1><span data-l="zh">怎样读这 480 件</span><span data-l="en">How to read 480 works</span></h1>
+  <p class="g-lede"><span data-l="zh">这不是一部完整的全球绘画史。它是一份从 400 年到 1799 年的可检索样本：480 件作品，按 10 个地域、七个时间段和六个主题交叉编排。每件作品都能回到详情页，核对馆藏、来源、授权和图像版本。</span><span data-l="en">This is not a complete global history of painting. It is a searchable sample from 400 to 1799: 480 works, cross-arranged by 10 regions, seven periods and six themes. Every work leads back to a detail page with its holding, source, licence and image record.</span></p>
   <div class="g-stats">
-    <div class="g-stat"><b>473</b><span><span data-l="zh">件作品</span><span data-l="en">works</span></span></div>
-    <div class="g-stat"><b>666</b><span><span data-l="zh">个图像条目</span><span data-l="en">image records</span></span></div>
+    <div class="g-stat"><b>480</b><span><span data-l="zh">件作品</span><span data-l="en">works</span></span></div>
+    <div class="g-stat"><b>680</b><span><span data-l="zh">个图像条目</span><span data-l="en">image records</span></span></div>
     <div class="g-stat"><b>10</b><span><span data-l="zh">个地域</span><span data-l="en">regions</span></span></div>
     <div class="g-stat"><b>400–1798</b><span><span data-l="zh">作品年代</span><span data-l="en">date range</span></span></div>
   </div>
 
-  <h2><span data-l="zh">为什么是这 473 件</span><span data-l="en">Why these 473</span></h2>
+  <h2><span data-l="zh">为什么是这 480 件</span><span data-l="en">Why these 480</span></h2>
   <p><span data-l="zh">目标是“可进入”，不是“求全”。选择优先覆盖不同文明与媒介的转折点，再补足同一主题下的对照作品；欧洲 150 件、中国 125 件、南亚 97 件、东亚 39 件，其余地域保留少量关键样本。它不是馆藏目录，也不是拍卖图录，更不代表某一地域的全部绘画成就。</span><span data-l="en">The aim is access, not completeness. Selection favours turning points across civilizations and media, then adds contrasting works within the same theme: Europe 150, China 125, South Asia 97, East Asia 39, with smaller key samples from other regions. It is neither a museum catalogue nor an auction record, and it does not represent all painting from any one region.</span></p>
-  <p class="g-note"><span data-l="zh">所有计数以图片站的 473 条主记录为准；同一件作品的不同局部、背面或版本会作为额外图像条目保留，因此图像条目总数为 666，而不是 473。</span><span data-l="en">All counts refer to the 473 primary records on the image site. Details, versos and versions of the same work are kept as additional image records, so the total is 666 rather than 473.</span></p>
+  <p class="g-note"><span data-l="zh">所有计数以图片站的 480 条主记录为准；同一件作品的不同局部、背面或版本会作为额外图像条目保留，因此图像条目总数为 680，而不是 480。</span><span data-l="en">All counts refer to the 480 primary records on the image site. Details, versos and versions of the same work are kept as additional image records, so the total is 680 rather than 480.</span></p>
 
   <h2><span data-l="zh">三个入口</span><span data-l="en">Three ways in</span></h2>
   <ul>
@@ -158,7 +172,7 @@
   <table><thead><tr><th><span data-l="zh">主题</span><span data-l="en">Theme</span></th><th><span data-l="zh">件</span><span data-l="en">Works</span></th><th><span data-l="zh">进入</span><span data-l="en">Open</span></th></tr></thead><tbody><tr><td>信仰与图像 <span class="g-en-cell">Faith and Image</span></td><td>54</td><td><a href="https://chenhua.net/themes/society/faith/">打开 / Open</a></td></tr><tr><td>山水与自然 <span class="g-en-cell">Landscape and Nature</span></td><td>76</td><td><a href="https://chenhua.net/themes/nature/landscape/">打开 / Open</a></td></tr><tr><td>人物与自我 <span class="g-en-cell">Portrait and Self</span></td><td>107</td><td><a href="https://chenhua.net/themes/human/portrait/">打开 / Open</a></td></tr><tr><td>城市与日常 <span class="g-en-cell">City and Everyday Life</span></td><td>46</td><td><a href="https://chenhua.net/themes/society/city/">打开 / Open</a></td></tr><tr><td>文字与观看 <span class="g-en-cell">Word and Looking</span></td><td>86</td><td><a href="https://chenhua.net/themes/image/word/">打开 / Open</a></td></tr><tr><td>材料与技法 <span class="g-en-cell">Material and Technique</span></td><td>73</td><td><a href="https://chenhua.net/themes/object/technique/">打开 / Open</a></td></tr></tbody></table>
 
   <h2><span data-l="zh">图像从哪里来</span><span data-l="en">Where the images come from</span></h2>
-  <p><span data-l="zh">这 473 件的数字图像主要来自克利夫兰艺术博物馆的开放收藏，其次是维基共享资源和大都会艺术博物馆。馆藏（今天收藏原作的机构）与数字来源（这张图从哪个平台取得）是两件事，下表分开列出；具体的文件页、授权与获取时间以每件详情页为准。</span><span data-l="en">Most of these 473 digital images come from the Cleveland Museum of Art’s open collection, followed by Wikimedia Commons and the Metropolitan Museum of Art. Holding (the institution that keeps the original today) and digital source (the platform this file came from) are different things; the tables below keep them separate. The file page, licence and retrieval date live on each detail page.</span></p>
+  <p><span data-l="zh">这 480 件的数字图像主要来自克利夫兰艺术博物馆的开放收藏，其次是维基共享资源和大都会艺术博物馆。馆藏（今天收藏原作的机构）与数字来源（这张图从哪个平台取得）是两件事，下表分开列出；具体的文件页、授权与获取时间以每件详情页为准。</span><span data-l="en">Most of these 480 digital images come from the Cleveland Museum of Art’s open collection, followed by Wikimedia Commons and the Metropolitan Museum of Art. Holding (the institution that keeps the original today) and digital source (the platform this file came from) are different things; the tables below keep them separate. The file page, licence and retrieval date live on each detail page.</span></p>
   <h3><span data-l="zh">数字图像来源</span><span data-l="en">Digital image source</span></h3>
   <table><thead><tr><th><span data-l="zh">来源</span><span data-l="en">Source</span></th><th><span data-l="zh">件</span><span data-l="en">Works</span></th></tr></thead><tbody><tr><td>克利夫兰艺术博物馆</td><td>384</td></tr><tr><td>维基共享资源</td><td>42</td></tr><tr><td>大都会艺术博物馆</td><td>10</td></tr></tbody></table>
   <h3><span data-l="zh">今日馆藏（前六）</span><span data-l="en">Holding today (top six)</span></h3>

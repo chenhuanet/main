@@ -175,6 +175,7 @@ html[data-theme="light"] .icon-moon{display:none}
 .tl-body .cnt{font-size:9px;color:var(--dim);margin-top:4px;letter-spacing:.08em}
 .seo-fallback{max-width:760px;margin:0 auto;padding:40px 20px;color:var(--muted)}
 .seo-fallback h1{font-family:var(--serif);font-weight:400;font-size:28px;color:var(--text)}
+.seo-fallback-title{font-family:var(--serif);font-weight:400;font-size:28px;color:var(--text);margin:0 0 10px}
 .seo-fallback nav{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
 .seo-fallback a{color:var(--accent)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
